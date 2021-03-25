@@ -4,7 +4,7 @@ import './Map.css';
 import { Icon } from '@iconify/react';
 import locationIcon from '@iconify/icons-mdi/fire-alert';
 import LocationInfoBox from './LocationInfoBox';
-import volcanoIcon from '@iconify/icons-fxemoji/volcano';
+// import volcanoIcon from '@iconify/icons-fxemoji/volcano';
 import floatingIce from '@iconify/icons-openmoji/floating-ice';
 
 
@@ -30,16 +30,16 @@ const Map = ({ eventData }) => {
         }
         return null
     })
-    const marker3 = eventData.map(ev => {
-        if (ev.categories[0].id === 12) {
-            return <Marker latitude={ev.geometries[0].coordinates[1]} longitude={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}>
-                <div className="location-marker" >
-                    <Icon icon={volcanoIcon}/>
-                </div>
-            </Marker>
-        }
-        return null
-    })
+    // const marker3 = eventData.map(ev => {
+    //     if (ev.categories[0].id === 12) {
+    //         return <Marker latitude={ev.geometries[0].coordinates[1]} longitude={ev.geometries[0].coordinates[0]} onClick={() => setLocationInfo({ id: ev.id, title: ev.title })}>
+    //             <div className="location-marker" >
+    //                 <Icon icon={volcanoIcon}/>
+    //             </div>
+    //         </Marker>
+    //     }
+    //     return null
+    // })
 
     let [viewport, setViewport] = useState({
         latitude: 37.7577,
@@ -59,7 +59,7 @@ const Map = ({ eventData }) => {
             
             {marker1}
             {marker2}
-            {marker3}
+            {/* {marker3} */}
             {locationInfo && <LocationInfoBox info={locationInfo} />}
         </ReactMapGL>
     )
